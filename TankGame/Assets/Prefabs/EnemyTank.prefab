@@ -71,7 +71,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4948364832982454}
   - component: {fileID: 33430658682026614}
-  - component: {fileID: 136424609488771008}
   - component: {fileID: 23968901452112954}
   m_Layer: 9
   m_Name: Cylinder
@@ -115,14 +114,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174207238489730}
-  m_LocalRotation: {x: 0, y: 0.6239247, z: 0, w: 0.7814845}
-  m_LocalPosition: {x: 3.648343, y: 0, z: 9.907225}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 20, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4760762377691258}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4760762377691258
 Transform:
   m_ObjectHideFlags: 1
@@ -316,16 +315,3 @@ MonoBehaviour:
     type: 2}
   _firingRate: 0.33333334
   _shootingPoint: {fileID: 4096841827235432}
---- !u!136 &136424609488771008
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1915564762022414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

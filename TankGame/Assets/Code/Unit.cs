@@ -48,6 +48,14 @@ namespace TankGame
 			protected set;
 		}
 
+        public int StartingHealth
+        {
+            get
+            {
+                return _startingHealth;
+            }
+        }
+
 		public IMover Mover { get { return _mover; } }
 
 		public Health Health { get; protected set; }
@@ -102,7 +110,16 @@ namespace TankGame
 		protected virtual void HandleUnitDied( Unit unit )
 		{
 			GameManager.Instance.MessageBus.Publish( new UnitDiedMessage( this ) );
-			gameObject.SetActive( false );
+            //gameObject.SetActive( false );
+            Health.SetHealth(_startingHealth);
+            if (this is EnemyUnit)
+            {
+                transform.position = FindObjectOfType<EnemySpawn>().transform.position;
+            } else
+            {
+                transform.position = FindObjectOfType<PlayerSpawn>().transform.position;
+                GetComponent<PlayerUnit>()._livesLeft--;
+            }
 		}
 
 		public virtual UnitData GetUnitData()

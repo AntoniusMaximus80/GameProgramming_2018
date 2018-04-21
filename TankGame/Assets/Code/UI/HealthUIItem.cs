@@ -50,10 +50,9 @@ namespace TankGame.UI
 
 		private void OnUnitDied( UnitDiedMessage msg )
 		{
-			if ( msg.DeadUnit == _unit )
+			if ( msg.DeadUnit == _unit && IsEnemy)
 			{
-				UnregisterEventListeners();
-				gameObject.SetActive( false );
+                _unit.Health.SetHealth(_unit.StartingHealth);
 			}
 		}
 
@@ -73,7 +72,7 @@ namespace TankGame.UI
 
 		private void OnUnitHealthChanged( Unit unit, int health )
 		{
-			SetText( health );
+            SetText( health );
 		}
 
 		private void SetText( int health )

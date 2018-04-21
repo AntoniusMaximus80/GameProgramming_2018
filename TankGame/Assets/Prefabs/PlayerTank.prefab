@@ -54,6 +54,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4656972454762744}
   - component: {fileID: 114401288640550870}
+  - component: {fileID: 114342108803592138}
+  - component: {fileID: 114361717538761452}
   m_Layer: 8
   m_Name: PlayerTank
   m_TagString: Untagged
@@ -85,7 +87,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4317033529093546}
   - component: {fileID: 33974266791025460}
-  - component: {fileID: 136527103664926384}
   - component: {fileID: 23819109937842968}
   m_Layer: 8
   m_Name: Cylinder
@@ -156,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480723570321584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.74}
+  m_LocalPosition: {x: -17.6, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4074964794067092}
@@ -272,6 +273,28 @@ MonoBehaviour:
     type: 2}
   _firingRate: 0.33333334
   _shootingPoint: {fileID: 4496076807527026}
+--- !u!114 &114342108803592138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1480723570321584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6971e647804ee4e9dd635a1f6c9b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114361717538761452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1480723570321584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663acdcdb5c2c0341aa0016050c3dd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114401288640550870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,18 +309,7 @@ MonoBehaviour:
   _moveSpeed: 10
   _turnSpeed: 30
   _startingHealth: 100
+  _id: 0
   _horizontalAxis: Horizontal
   _verticalAxis: Vertical
---- !u!136 &136527103664926384
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1995674251248930}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  _livesLeft: 3
