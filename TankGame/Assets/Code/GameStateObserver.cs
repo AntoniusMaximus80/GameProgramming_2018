@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TankGame.Messaging;
@@ -8,6 +7,8 @@ namespace TankGame
 {
     /// <summary>
     /// This class observes the game situation. It keeps track of the score, collectables and player lives.
+    /// Once the player has either surpassed the score to win value or the player has lost all of his lives,
+    /// the class pauses the game and displays either a victory or a defeat message.
     /// </summary>
     public class GameStateObserver : MonoBehaviour
     {
@@ -55,7 +56,21 @@ namespace TankGame
 
         private int _score = 0;
 
-        // Use this for initialization
+        //private static GameStateObserver _instance;
+
+        //public static GameStateObserver Instance
+        //{
+        //    get
+        //    {
+        //        if (_instance == null)
+        //        {
+        //            GameObject gameManagerObject = new GameObject(typeof(GameStateObserver).Name);
+        //            _instance = gameManagerObject.AddComponent<GameStateObserver>();
+        //        }
+        //        return _instance;
+        //    }
+        //}
+
         void Start()
         {
             _collectables = new List<Collectable>();
@@ -66,6 +81,27 @@ namespace TankGame
             _remainingLivesText.text = string.Format("Remaining lives " + _playerRemainingLives);
         }
 
+        void Update()
+        {
+            if (_collectables.Count < _maximumCollectableItems) {
+                _collectableSpawnCountdown -= Time.deltaTime;
+                if (_collectableSpawnCountdown < 0f)
+                {
+                    _collectableSpawnCountdown = _collectableSpawnRate;
+                    Collectable collectable = Instantiate(_collectablePrefab);
+                    RandomizeCollectablePosition(collectable);
+                    _collectables.Add(collectable);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The class listens to OnUnitDied messages and acts depending on
+        /// if it was the player's tank or an enemy tank that died.
+        /// I added the actual death mechanics (resetting health and
+        /// moving the tanks to respawn areas) in the Unit class.
+        /// </summary>
+        /// <param name="msg"></param>
         private void OnUnitDied(UnitDiedMessage msg)
         {
             if (msg.DeadUnit is PlayerUnit)
@@ -79,21 +115,6 @@ namespace TankGame
             {
                 _score += _scorePerEnemyTank;
                 UpdateScore();
-            }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (_collectables.Count < _maximumCollectableItems) {
-                _collectableSpawnCountdown -= Time.deltaTime;
-                if (_collectableSpawnCountdown < 0f)
-                {
-                    _collectableSpawnCountdown = _collectableSpawnRate;
-                    Collectable collectable = Instantiate(_collectablePrefab);
-                    RandomizeCollectablePosition(collectable);
-                    _collectables.Add(collectable);
-                }
             }
         }
 

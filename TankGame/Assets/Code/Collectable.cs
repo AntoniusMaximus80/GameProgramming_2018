@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TankGame.UI;
+﻿using UnityEngine;
 
 namespace TankGame
 {
@@ -34,12 +31,6 @@ namespace TankGame
             }
         }
 
-        public void Init()
-        {
-            gameObject.SetActive(false);
-        }
-
-        // Use this for initialization
         void Start()
         {
             _hoverTimeOffset = Random.Range(-1f, 1f);
@@ -47,7 +38,6 @@ namespace TankGame
             _gameStateObserver = FindObjectOfType<GameStateObserver>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             HoverAndRotate();

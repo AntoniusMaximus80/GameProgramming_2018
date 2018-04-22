@@ -14,6 +14,6 @@ public class PropertyChangedTester : MonoBehaviour
 
 	private void HandlePropertyChanged( object sender, PropertyChangedEventArgs e )
 	{
-		Debug.Log( string.Format("Property {0} changed", e.PropertyName) );
+		//Debug.Log( string.Format("Property {0} changed", e.PropertyName) );
 	}
 }

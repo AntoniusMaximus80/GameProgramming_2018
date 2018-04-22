@@ -52,7 +52,7 @@ namespace TankGame.UI
 		{
 			if ( msg.DeadUnit == _unit && IsEnemy)
 			{
-                _unit.Health.SetHealth(_unit.StartingHealth);
+
 			}
 		}
 
@@ -87,5 +87,5 @@ namespace TankGame.UI
 
 			_text.text = string.Format( translation, unitTranslation, health );
 		}
-	}
+    }
 }
